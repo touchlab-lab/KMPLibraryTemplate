@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KMPLibraryExample-jvm-0.0.1">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="KMPLibraryExample-jvm-0.0.1.jar">
+      <element id="module-output" name="com.example.KMPLibraryExample.jvmMain" />
+    </root>
+  </artifact>
+</component>
