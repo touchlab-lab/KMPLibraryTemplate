@@ -9,18 +9,25 @@ plugins {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 group = "com.example"
 version = "0.0.1"
 
 android {
-	compileSdkVersion(28)
+    compileSdkVersion(29)
+
+    defaultConfig {
+        minSdkVersion(15)
+    }
 }
 
 kotlin {
-//	android()
-	jvm()
+    android {
+        publishAllLibraryVariants()
+    }
+//	jvm()
     js {
         browser {
         }
@@ -57,20 +64,21 @@ kotlin {
             }
         }
 
-//		val main by getting {
-//			dependencies {
-//				implementation(kotlin("stdlib"))
-//			}
-//		}
+		val androidMain by getting {
+			dependencies {
+				implementation(kotlin("stdlib"))
+			}
+		}
 
-//		val mainTest by getting {
-//			dependencies {
-//				implementation(kotlin("test"))
-//				implementation(kotlin("test-annotations"))
-//			}
-//		}
+		val androidTest by getting {
+			dependencies {
+				implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.12")
+			}
+		}
 
-        val jvmMain by getting {
+/*        val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
             }
@@ -80,7 +88,7 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
             }
-        }
+        }*/
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
