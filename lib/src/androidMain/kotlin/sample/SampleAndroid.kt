@@ -1,7 +1,9 @@
 package sample
 
+import android.os.Looper
+
 //actual object Logger {
-//	actual val isOnMainThread: Boolean = Looper.getMainLooper()
+//	actual val isOnMainThread: Boolean = Looper.getMainLooper() === Looper.myLooper()
 //}
 
 actual class Sample {
