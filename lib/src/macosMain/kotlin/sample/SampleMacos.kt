@@ -1,5 +1,9 @@
 package sample
 
+//actual object Logger {
+//	actual val isOnMainThread: Boolean = NSThread.isMainThread()
+//}
+
 actual class Sample {
     actual fun checkMe() = 7
 }

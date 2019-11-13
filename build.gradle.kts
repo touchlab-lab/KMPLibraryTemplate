@@ -1,15 +1,20 @@
 buildscript {
     repositories {
-        addRepos()
-    }
+		google()
+		jcenter()
+		mavenCentral()
+	}
 
     dependencies {
         classpath(ClassPaths.KotlinGradlePlugin)
+		classpath(ClassPaths.AndroidGradlePlugin)
     }
 }
 
 allprojects {
     repositories {
-        addRepos()
-    }
+		google()
+		jcenter()
+		mavenCentral()
+	}
 }

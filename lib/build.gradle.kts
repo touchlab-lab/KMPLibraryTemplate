@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
 plugins {
-    kotlin("multiplatform")
-    id("maven-publish")
+	id("com.android.library")
+//	kotlin("android")
+	kotlin("multiplatform")
+	id("maven-publish")
 }
 
 repositories {
@@ -10,8 +14,13 @@ repositories {
 group = "com.example"
 version = "0.0.1"
 
+android {
+	compileSdkVersion(28)
+}
+
 kotlin {
-    jvm()
+//	android()
+	jvm()
     js {
         browser {
         }
@@ -47,6 +56,20 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
+
+//		val main by getting {
+//			dependencies {
+//				implementation(kotlin("stdlib"))
+//			}
+//		}
+
+//		val mainTest by getting {
+//			dependencies {
+//				implementation(kotlin("test"))
+//				implementation(kotlin("test-annotations"))
+//			}
+//		}
+
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
