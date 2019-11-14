@@ -1,9 +1,8 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
-	id("com.android.library")
-//	kotlin("android")
 	kotlin("multiplatform")
+	id("com.android.library")
 	id("maven-publish")
 }
 
@@ -27,13 +26,14 @@ kotlin {
     android {
         publishAllLibraryVariants()
     }
-//	jvm()
-    js {
+
+	js {
         browser {
         }
         nodejs {
         }
     }
+
     // For ARM, should be changed to iosArm32 or iosArm64
     // For Linux, should be changed to e.g. linuxX64
     // For MacOS, should be changed to e.g. macosX64
@@ -43,6 +43,7 @@ kotlin {
             framework()
         }
     }
+
     iosArm32()
     iosArm64()
     iosX64(){
@@ -52,12 +53,13 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
+        val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
             }
         }
-        commonTest {
+
+        val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
@@ -78,29 +80,21 @@ kotlin {
 			}
 		}
 
-/*        val jvmMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-jdk8"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
-            }
-        }*/
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
             }
         }
+
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
             }
         }
+
         val macosMain by getting {
         }
+
         val macosTest by getting {
         }
 

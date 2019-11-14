@@ -1,8 +1,8 @@
 package sample
 
-//actual object Logger {
-//	actual val isOnMainThread: Boolean = true
-//}
+actual object Logger {
+	actual val isOnMainThread: Boolean = true
+}
 
 actual class Sample {
     actual fun checkMe() = 12
